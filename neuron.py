@@ -30,6 +30,6 @@ class Neuron:
 
 neurone = Neuron(7)
 
-neurone.setWeightsRange(5,-5)
-print(neurone.maxWeightValue)
-print(neurone.minWeightValue)
+# neurone.setWeightsRange(5,-5)
+# print(neurone.maxWeightValue)
+# print(neurone.minWeightValue)
