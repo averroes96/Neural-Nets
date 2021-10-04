@@ -1,6 +1,5 @@
 from neuron import Neuron
 import utils
-import numpy as np
 
 class Layer:
 
@@ -14,12 +13,12 @@ class Layer:
                 weights.append(utils.randomFloat(Neuron.minWeightValue, Neuron.maxWeightValue))
             self.neurons.append(weights)
 
-    def __init__(self, input) -> None: # Constructor for the input layer
-        super().__init__()
+    # def __init__(self, input) -> None: # Constructor for the input layer
+    #     super().__init__()
         
-        self.neurons = []
-        for i in range(0, len(input)):
-            self.neurons.append(Neuron(input[i]))
+    #     self.neurons = []
+    #     for i in range(0, len(input)):
+    #         self.neurons.append(Neuron(input[i]))
 
 # inputs = np.random.randint(0,100, size=(1,10))
 # print(inputs)

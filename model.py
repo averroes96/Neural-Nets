@@ -2,12 +2,12 @@ from layer import Layer
 import utils
 
 class Model:
-
-    def __init__(self, data, layers) -> None: # Constructor for the hidden / output neurons
+    
+    def __init__(self) -> None: # Constructor for the hidden / output neurons
         super().__init__()
 
-        self.data = data
-        self.layers = layers
+        self.data = []
+        self.layers = []
 
     def forward(self, inputs):
 
@@ -64,12 +64,26 @@ class Model:
         return gradient_sum
 
     def train(self, epochs, learning_rate):
+
+        print("============")
+        print("Output before training")
+        print("============")
+        self.init()
+
         for i in range(0, epochs):
             for j in range(0, len(self.data)):
                 self.forward(self.data[j].data)
                 self.backward(learning_rate, self.data[j])
+
+        print("============")
+        print("Output after training")
+        print("============")
+        self.init()
     
     def init(self):
         for i in range(0, len(self.data)):
             self.forward(self.data[i].input)
             print(self.layers[2].neurons[0].value)
+
+    def addLayer(self, layer):
+        self.layers.append(layer)
