@@ -14,11 +14,13 @@ input2 = [0, 1]
 input3 = [1, 0]
 input4 = [1, 1]
 
-outputs = [0, 1, 1, 0]
+outputs = [[0], [1], [1], [0]]
 
 model.data.append(DataSet(input1, outputs[0]))
 model.data.append(DataSet(input2, outputs[1]))
 model.data.append(DataSet(input3, outputs[2]))
 model.data.append(DataSet(input4, outputs[3]))
+
+print(len(model.layers))
 
 model.train(1000, 0.05)

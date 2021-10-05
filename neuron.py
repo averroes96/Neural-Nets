@@ -3,25 +3,27 @@ class Neuron:
     minWeightValue = -1.0
     maxWeightValue = 1.0
 
-    def __init__(self, weights, bias) -> None: # Constructor for the hidden / output neurons
-        super().__init__()
-
-        self.weights = weights
-        self.bias = bias
-        self.cached_weights = weights
-        self.gradient = 0
-
-    def __init__(self, value) -> None: # Constructor for the input neurons
+    def __init__(self, weights, bias=-1) -> None: # Constructor for the hidden / output neurons
         super().__init__()
         
-        self.weights = None
-        self.bias = -1
-        self.cached_weights = self.weights
-        self.gradient = -1
-        self.value = value
+        if bias != -1:
+            self.weights = weights
+            self.bias = bias
+            self.cached_weights = weights
+            self.gradient = 0
+            self.value = 0
+        else:
+            self.weights = None
+            self.bias = -1
+            self.cached_weights = self.weights
+            self.gradient = -1
+            self.value = weights
 
     def updateWeights(self):
         self.weights = self.cached_weights
+
+    def __str__(self): # toString
+        return f"Weights: {self.weights} | Bias: {self.weights} | cached_weights: {self.cached_weights} | value: {self.value}"
 
     @classmethod
     def setWeightsRange(cls, min, max): # Static function to set min and max weight for all variables
